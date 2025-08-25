@@ -1,0 +1,71 @@
+########################################
+# 🚨 DATENSCHUTZ & SICHERHEIT
+########################################
+# NIEMALS persönliche oder sensible Daten committen!
+applications/
+exports/
+*.pdf
+*.docx
+*.db
+*.sqlite*
+
+# API Keys und Secrets
+.env
+!.env.example
+*.key
+*.pem
+api_keys.json
+
+# Persönliche Daten
+profiles/
+personal_data.json
+global_settings.json
+processed_jobs.json
+
+# Test & Development
+test_*
+*.tmp
+*.bak
+backup/
+logs/
+*.log
+
+########################################
+# 🐍 Python
+########################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+
+########################################
+# 🕸️ Node / React / Frontend
+########################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+.cache/
+.parcel-cache/
+
+########################################
+# 🖥️ Tauri / Rust
+########################################
+src-tauri/target/
+*.dmg
+*.app
+*.exe
+
+########################################
+# 💻 System Files
+########################################
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
