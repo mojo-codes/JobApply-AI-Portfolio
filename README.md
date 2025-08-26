@@ -276,6 +276,32 @@ This is a portfolio project demonstrating:
 - **Database Optimization** - Efficient SQLite usage
 - **Resource Management** - Memory and CPU optimization
 
+## 📸 Application Screenshots
+
+### Main Dashboard - Job Search Interface
+![Job Search Dashboard](screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.25.png)
+*Modern React interface with career profile integration and intelligent job matching*
+
+### Advanced Configuration
+<div align="center">
+  <img src="screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.45.png" width="45%" alt="Settings Panel">
+  <img src="screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.54.png" width="45%" alt="API Configuration">
+</div>
+
+*Left: Job filtering and cache management | Right: API provider configuration and profile management*
+
+### Career Profile Management
+![Career Profile System](screenshots/Bildschirmfoto%202025-08-26%20um%2018.26.17.png)
+*Professional profile management with skills categorization and template system*
+
+## 🎨 Design Highlights
+
+- **Modern Dark Theme** - Professional appearance with excellent readability
+- **Intuitive Navigation** - Tab-based interface for efficient workflow
+- **Real-time Updates** - Live status indicators and progress tracking
+- **Responsive Layout** - Optimized for desktop and tablet use
+- **German Localization** - Native German interface for local market
+
 ---
 
 **This project showcases modern full-stack development, AI integration, and practical automation solutions for real-world workflow optimization.**
