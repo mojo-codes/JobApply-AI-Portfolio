@@ -41,7 +41,7 @@ const SmartEditPreview = forwardRef<SmartEditPreviewRef, SmartEditPreviewProps>(
   const [editableData, setEditableData] = useState<EditableApplicationData>({
     personalData: {
       name: "Max Mustermann",
-      street: "Musterstrasse 1", 
+      street: "Musterstrasse 1",
       city: "12345 Musterstadt",
       phone: "Tel.: 01234 567890",
       email: "max.mustermann@example.com"

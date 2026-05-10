@@ -368,7 +368,7 @@ export const ApplicationApproval: React.FC<ApplicationApprovalProps> = ({
                   {addressInputs[app.job_id]?.trim() && (
                     <p className="text-green-400/90 text-xs mt-2 flex items-center gap-1">
                       <span>✅</span>
-                      Adresse verfügbar – Vollständige PDF-Erstellung möglich
+                      Adresse verfügbar - Vollständige PDF-Erstellung möglich
                     </p>
                   )}
                 </div>

@@ -51,7 +51,7 @@ try:
     from urllib3.exceptions import NotOpenSSLWarning  # type: ignore
 
     warnings.filterwarnings("ignore", category=NotOpenSSLWarning)
-except Exception:  # pragma: no cover – urllib3 might be missing in minimal envs
+except Exception:  # pragma: no cover - urllib3 might be missing in minimal envs
     pass
 
 # =========================================
@@ -841,7 +841,7 @@ class UltimateJobHunter:
             return None
 
     def process_top_jobs(self, ranked_jobs, count=3):
-        """🚀 Verarbeite Top-Jobs (CLI-Modus) – jetzt mit Rückfrage-Logik und robusteren Dateinamen"""
+        """🚀 Verarbeite Top-Jobs (CLI-Modus) - jetzt mit Rückfrage-Logik und robusteren Dateinamen"""
         if not ranked_jobs:
             print("❌ Keine Jobs!")
             return
@@ -1025,7 +1025,7 @@ class UltimateJobHunter:
                     try:
                         answer = input("⚠️  Keine Firmenanschrift gefunden. Trotzdem TXT-Datei speichern (j/n)? ")
                         if not answer.lower().startswith('j'):
-                            print("⏭️  Job übersprungen – keine Datei gespeichert.")
+                            print("⏭️  Job übersprungen - keine Datei gespeichert.")
                             continue  # Überspringe Job ohne etwas abzulegen
                     except EOFError:
                         # Non-interactive mode - automatically save
@@ -1105,7 +1105,7 @@ class UltimateJobHunter:
             
             if not ranked_jobs:
                 self.emit_json_event('final_results', {
-                    'message': 'Keine relevanten Jobs gefunden – bitte Suchbegriffe anpassen.',
+                    'message': 'Keine relevanten Jobs gefunden - bitte Suchbegriffe anpassen.',
                     'status': 'no_jobs'
                 })
                 return
@@ -1348,7 +1348,7 @@ class UltimateJobHunter:
 
                 app_data = app_lookup.get(job_id)
 
-                # Jetzt erst – nach Approval – Dateien schreiben 📂
+                # Jetzt erst - nach Approval - Dateien schreiben 📂
                 if app_data:
                     try:
                         # Verwende Aktualisierungen des Users, falls vorhanden
@@ -1647,7 +1647,7 @@ class UltimateJobHunter:
                 job_description = scraped
 
         if not job_description:
-            # Minimaler Fallback – nur Basisdaten
+            # Minimaler Fallback - nur Basisdaten
             job_description = (
                 f"Position: {job.get('title')}\n"
                 f"Unternehmen: {job.get('company')}\n"
@@ -1815,8 +1815,8 @@ class UltimateJobHunter:
 
         try:
             # Wenn Adresse fehlt, belassen wir den Brieftext unverändert.
-            # Die PDF-Generierungsroutine fügt später – abhängig von der vom Benutzer
-            # eingegebenen Unternehmensanschrift – automatisch den Adressblock im Kopf ein.
+            # Die PDF-Generierungsroutine fügt später - abhängig von der vom Benutzer
+            # eingegebenen Unternehmensanschrift - automatisch den Adressblock im Kopf ein.
 
             # Entscheide, ob wir ein PDF erzeugen - nur wenn eine gültige Adresse vorhanden ist
             pdf_path_str: Optional[str] = None
@@ -2436,7 +2436,7 @@ class UltimateJobHunter:
             text_input: Job description text
             
         Returns:
-            Dictionary with AI-generated application data for preview
+            Dictionary with generated application data for preview
         """
         import re
         import uuid

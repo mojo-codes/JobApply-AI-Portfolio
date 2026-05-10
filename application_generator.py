@@ -14,7 +14,7 @@ class ApplicationGenerator:
     testable interface without pulling in the full *booster_turbo* dependency tree.
     """
 
-    def __init__(self, helper: "TurboBewerbungsHelfer") -> None:  # noqa: F821 – forward ref
+    def __init__(self, helper: "TurboBewerbungsHelfer") -> None:  # noqa: F821 - forward ref
         self.helper = helper
 
     # ------------------------------------------------------------------
@@ -37,4 +37,4 @@ class ApplicationGenerator:
         str
             Generated application letter (DIN 5008 compliant).
         """
-        return self.helper.generate_anschreiben(job_description, extra_prompt, job_data=job_data or {}) 
+        return self.helper.generate_anschreiben(job_description, extra_prompt, job_data=job_data or {})

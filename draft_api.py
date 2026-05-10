@@ -1,4 +1,4 @@
-"""draft_api.py – FastAPI application exposing Draft storage endpoints.
+"""draft_api.py - FastAPI application exposing Draft storage endpoints.
 
 Run locally:
     uvicorn draft_api:app --reload --port 8000
@@ -566,4 +566,4 @@ def api_manual_job_finalization(data: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000) 
+    uvicorn.run(app, host="127.0.0.1", port=8000)

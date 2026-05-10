@@ -8,9 +8,9 @@ interface GlobalProgressBarProps {
 
 /**
  * Fixed top progress bar that visualises backend workflow progress.
- * – Animates width with framer-motion
- * – Gradient amber→emerald
- * – Auto-hides 1 s after reaching 100 %
+ * - Animates width with framer-motion
+ * - Gradient amber to emerald
+ * - Auto-hides 1 s after reaching 100 %
  */
 export default function GlobalProgressBar({ progress, isRunning }: GlobalProgressBarProps) {
   const [visible, setVisible] = useState(false);
@@ -48,4 +48,4 @@ export default function GlobalProgressBar({ progress, isRunning }: GlobalProgres
       )}
     </AnimatePresence>
   );
-} 
+}

@@ -27,7 +27,7 @@ export default function FormattedApplicationPreview({
 }: FormattedApplicationPreviewProps) {
   const [personalData, setPersonalData] = useState<PersonalData>({
     name: "Max Mustermann",
-    street: "Musterstrasse 1", 
+    street: "Musterstrasse 1",
     city: "12345 Musterstadt",
     phone: "Tel.: 01234 567890",
     email: "max.mustermann@example.com"
@@ -40,7 +40,7 @@ export default function FormattedApplicationPreview({
       // 1. Fallback-Daten
       let fallbackData = {
         name: "Max Mustermann",
-        street: "Musterstrasse 1", 
+        street: "Musterstrasse 1",
         city: "12345 Musterstadt",
         phone: "Tel.: 01234 567890",
         email: "max.mustermann@example.com"

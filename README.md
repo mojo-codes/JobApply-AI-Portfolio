@@ -1,311 +1,122 @@
-# JobApply-AI - Local-first AI document workflow
+# JobApply-AI Portfolio
 
-Archived portfolio project from my early AI-building phase.
+Archived local-first AI workflow project.
 
-This is a local-first workflow app for generating structured German business documents with AI. It combines a React/TypeScript frontend, Python services, local SQLite storage and optional AI providers through environment variables.
+This project came from an early phase where I was learning how to connect AI APIs with real user workflows. The goal was simple: take messy job information, profile data and document rules, then turn them into structured German application drafts that could still be reviewed and edited by a human.
 
-The project is public as a technical case study: multi-service architecture, local data handling, WYSIWYG editing, PDF generation and AI-assisted document drafting. It is not my current MojoMakes product direction.
+It is not my current MojoMakes direction. I keep it public because it shows a useful learning step: frontend, backend services, local storage, PDF generation and AI-assisted writing working together in one tool.
 
-## 🚀 Key Features
+## What it does
 
-### AI-Powered Document Generation
-- **Gemini 2.5 Flash** primary AI provider for high-quality German applications
-- **OpenAI GPT** fallback integration for reliable text generation
-- Personalized cover letters tailored to specific job requirements
-- DIN 5008 compliant German business letter formatting
+- stores profile and template data locally
+- lets a user draft German business documents
+- uses AI providers through environment variables
+- renders editable previews in the browser
+- exports documents with DIN 5008-oriented formatting
+- keeps sensitive working data out of the repository
 
-### 🎨 Modern User Interface
-- **React + TypeScript** frontend with responsive design
-- **WYSIWYG Smart Edit Mode** - edit applications directly in PDF layout preview
-- **Tauri Desktop App** for native macOS/Windows experience
-- Real-time application preview with live editing capabilities
+## Why it is public
 
-### Local Profile Management
-- **Career Profile System** - skills, experience, and personal branding
-- **Search Template Engine** - customizable job search criteria
-- **Dynamic Profile Matching** - AI matches profiles to job requirements
-- Centralized personal data management with privacy focus
+This is a portfolio case, not a polished product.
 
-### 🔧 Advanced System Architecture
-- **Multi-API Backend** - separate services for different functionalities
-- **SQLite Database** - local data storage with privacy protection
-- **Health Check System** - automatic service monitoring and diagnostics
-- **Modular Design** - easy to extend and maintain
+It shows:
 
-## 🏗️ System Architecture
+- React and TypeScript frontend work
+- Python API services
+- local SQLite-based persistence
+- PDF generation
+- AI provider configuration through `.env`
+- a privacy-first approach for personal data
+- lessons from building a real workflow instead of a demo-only prompt
 
-### Backend Services (Python Flask)
-```
-Profile API (Port 5001)     - Search template management
-Career Profile API (5003)   - Personal career data & skills
-Draft API (Port 8000)       - Application drafts & PDF generation
-Job API (Port 5002)         - Job search and ranking (when available)
-```
+## What I would do differently now
 
-### Frontend (React + Tauri)
-```
-React Application (Port 1420) - Main user interface
-Tauri Desktop App             - Native desktop experience
-```
+If I rebuilt this today, I would simplify the architecture and make the data model cleaner before adding more features. I would also reduce the number of services, remove more debug output, and make the UI less feature-heavy.
 
-### AI Integration
-- **Primary**: Google Gemini 2.5 Flash (GOOGLE_API_KEY)
-- **Fallback**: OpenAI GPT Models (OPENAI_API_KEY)
-- **Maps**: Google Maps API for company address resolution
+That is exactly why I keep it here: it shows the learning curve.
 
-## 🛠️ Technology Stack
+## Tech stack
 
-### Core Technologies
-- **Backend**: Python 3.9+, Flask, SQLite
-- **Frontend**: React 18, TypeScript, Vite
-- **Desktop**: Tauri (Rust), Native OS Integration
-- **AI**: Google Gemini, OpenAI GPT
-- **PDF Generation**: ReportLab with DIN 5008 formatting
+- Frontend: React, TypeScript, Vite
+- Desktop shell: Tauri
+- Backend: Python, Flask
+- Storage: SQLite
+- Documents: ReportLab
+- AI providers: Gemini and OpenAI through environment variables
 
-### Key Dependencies
-- **google-generativeai** - Gemini AI integration
-- **openai** - GPT model access
-- **flask** - REST API framework
-- **sqlite3** - Local database
-- **reportlab** - PDF generation
-- **selenium** - Optional web automation
-- **react** - UI framework
-- **tauri** - Desktop app framework
+## Local setup
 
-## 📦 Installation & Setup
-
-### Prerequisites
 ```bash
-# Required
-Python 3.9+
-Node.js 18+
-npm or yarn
-
-# Optional (for desktop app)
-Rust + Cargo
-```
-
-### Backend Setup
-```bash
-# Install Python dependencies
 pip install -r requirements.txt
-
-# Create environment file
 cp .env.example .env
-# Edit .env with your API keys
-
-# Start all services
-python profile_api.py &
-python career_profile_api_server.py &
-python draft_api.py &
-
-# Verify services are running
-python system_health_check.py
 ```
 
-### Frontend Setup
+Add your own API keys to `.env`.
+
+Start the backend services:
+
+```bash
+python profile_api.py
+python career_profile_api_server.py
+python draft_api.py
+```
+
+Start the frontend:
+
 ```bash
 cd Bewerbungs-GUI
 npm install
 npm run dev
 ```
 
-### Desktop App (Optional)
+Optional desktop mode:
+
 ```bash
 cd Bewerbungs-GUI
 npm run tauri dev
 ```
 
-## ⚙️ Configuration
+## Environment variables
 
-### Required Environment Variables
 ```bash
-# AI Providers (at least one required)
-GOOGLE_API_KEY=your-google-gemini-api-key      # Primary AI provider
-OPENAI_API_KEY=your-openai-api-key             # Fallback AI provider
-
-# Maps & Address Resolution
-GOOGLE_MAPS_API_KEY=your-google-maps-key       # Company address lookup
-
-# Optional: Additional providers
+GOOGLE_API_KEY=your-google-gemini-api-key
+OPENAI_API_KEY=your-openai-api-key
+GOOGLE_MAPS_API_KEY=your-google-maps-key
 ANTHROPIC_API_KEY=your-anthropic-key
 PERPLEXITY_API_KEY=your-perplexity-key
 ```
 
-### System Configuration
-The system uses a centralized `ConfigManager` that loads from:
-1. Environment variables (.env file) - **highest priority**
-2. config.yaml file - fallback values
-3. Default values - system defaults
+The repository only contains placeholders. Real keys belong in your local `.env` file.
 
-## 🚀 Usage
+## Privacy notes
 
-### 1. System Health Check
-```bash
-python system_health_check.py
-```
-Always run this first to verify all services are operational.
+The repository intentionally ignores generated documents, local databases, personal profiles and real configuration files.
 
-### 2. Create Career Profile
-- Launch the frontend application
-- Navigate to Career Profile management
-- Add your skills, experience, and personal information
-- Save and activate your profile
+Ignored examples:
 
-### 3. Set Up Search Templates
-- Create search templates for different job types
-- Configure keywords, filters, and preferences
-- Use templates to focus your job search
+- `.env`
+- `*.db`
+- `*.sqlite`
+- `applications/`
+- `exports/`
+- `profiles/`
+- `personal_data.json`
+- `processed_jobs.json`
 
-### 4. Generate Applications
-- Use manual job entry or automated job discovery
-- Select appropriate career profile and search template
-- Generate personalized cover letters with AI
-- Export professional PDF applications
+## Screenshots
 
-### 5. Application Management
-- Review and edit generated drafts
-- Use WYSIWYG editor for real-time preview
-- Export to PDF with proper DIN 5008 formatting
-- Organize applications by company and date
-
-## 🎯 Core Workflows
-
-### AI Application Generation
-1. **Job Analysis** - AI analyzes job requirements
-2. **Profile Matching** - System matches relevant experience
-3. **Content Generation** - Gemini/GPT creates personalized content  
-4. **Format Compliance** - Ensures DIN 5008 business letter standards
-5. **Quality Review** - Built-in checks and validation
-
-### Profile Management
-1. **Career Data Entry** - Skills, experience, achievements
-2. **Template Creation** - Reusable search and application templates
-3. **Dynamic Matching** - AI-powered profile-to-job matching
-4. **Version Control** - Track changes and maintain profiles
-
-### System Integration
-- **Health Monitoring** - Automatic service health checks
-- **Error Handling** - Graceful degradation and fallbacks
-- **Data Privacy** - All data stored locally, no cloud dependencies
-- **Extensibility** - Modular architecture for easy enhancements
-
-## 🔒 Privacy & Security
-
-### Data Protection
-- **Local Storage Only** - No cloud synchronization
-- **API Key Security** - Environment variable protection
-- **Personal Data Isolation** - Separate data from application logic
-- **No Tracking** - No analytics or user behavior tracking
-
-### Security Features
-- Input validation and sanitization
-- SQL injection prevention
-- Cross-site scripting (XSS) protection
-- Secure API key handling
-
-## 🧪 Testing & Development
-
-### Health Monitoring
-```bash
-# Complete system check
-python system_health_check.py
-
-# Individual service tests
-curl http://localhost:5001/api/health    # Profile API
-curl http://localhost:5003/health        # Career Profile API  
-curl http://localhost:8000/drafts        # Draft API
-```
-
-### Development Tools
-- Built-in health check system
-- API endpoint testing capabilities
-- Debug mode for development
-- Comprehensive error logging
-
-## 📄 API Documentation
-
-### Profile Management API (Port 5001)
-- `GET /api/profiles` - List search templates
-- `POST /api/profiles` - Create new template
-- `PUT /api/profiles/{id}` - Update template
-- `DELETE /api/profiles/{id}` - Remove template
-
-### Career Profile API (Port 5003)  
-- `GET /api/career-profiles` - List career profiles
-- `POST /api/career-profiles` - Create profile
-- `PUT /api/career-profiles/{name}/activate` - Set active profile
-- `GET /api/career-profiles/active` - Get current profile
-
-### Draft Management API (Port 8000)
-- `GET /drafts` - List application drafts
-- `POST /drafts` - Create new draft
-- `POST /drafts/export` - Generate PDF export
-- `PUT /drafts/{id}` - Update draft content
-
-## 🎨 User Interface Features
-
-### Smart Edit Mode
-- **WYSIWYG Editing** - Edit directly in PDF preview layout
-- **Real-time Updates** - See changes instantly
-- **DIN 5008 Compliance** - Automatic formatting validation
-- **Responsive Design** - Works on desktop and tablet
-
-### Application Management
-- **Draft System** - Save and resume applications
-- **Template Library** - Reuse successful applications
-- **Export Options** - PDF generation with multiple formats
-- **Preview Modes** - Text edit, smart edit, and read-only preview
-
-## 🤝 Contributing
-
-This is a portfolio project demonstrating:
-- Full-stack development with modern technologies
-- AI integration and prompt engineering
-- System architecture and API design
-- Desktop application development
-- German business communication standards
-
-## 📞 Technical Notes
-
-### Performance Considerations
-- **Local Processing** - No cloud dependencies for core functionality
-- **Efficient Caching** - Smart caching of API responses
-- **Lazy Loading** - Optimized frontend performance
-- **Background Processing** - Non-blocking operations
-
-### Scalability Features
-- **Modular Architecture** - Easy to add new features
-- **API Separation** - Independent service scaling
-- **Database Optimization** - Efficient SQLite usage
-- **Resource Management** - Memory and CPU optimization
-
-## 📸 Application Screenshots
-
-### Main Dashboard - Job Search Interface
+### Dashboard
 ![Job Search Dashboard](screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.25.png)
-*Modern React interface with career profile integration and intelligent job matching*
 
-### Advanced Configuration
+### Configuration and profile management
 <div align="center">
-  <img src="screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.45.png" width="45%" alt="Settings Panel">
-  <img src="screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.54.png" width="45%" alt="API Configuration">
+  <img src="screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.45.png" width="45%" alt="Settings panel">
+  <img src="screenshots/Bildschirmfoto%202025-08-26%20um%2018.25.54.png" width="45%" alt="API configuration">
 </div>
 
-*Left: Job filtering and cache management | Right: API provider configuration and profile management*
-
-### Career Profile Management
+### Career profile
 ![Career Profile System](screenshots/Bildschirmfoto%202025-08-26%20um%2018.26.17.png)
-*Professional profile management with skills categorization and template system*
 
-## 🎨 Design Highlights
+## Status
 
-- **Modern Dark Theme** - Professional appearance with excellent readability
-- **Intuitive Navigation** - Tab-based interface for efficient workflow
-- **Real-time Updates** - Live status indicators and progress tracking
-- **Responsive Layout** - Optimized for desktop and tablet use
-- **German Localization** - Native German interface for local market
-
----
-
-**This project showcases modern full-stack development, AI integration, and practical automation solutions for real-world workflow optimization.**
+Archived. I am not actively building this further. My current work is MojoMakes: websites and lightweight business systems for small businesses.

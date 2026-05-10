@@ -230,16 +230,16 @@ const ProfileWizard: React.FC<ProfileWizardProps> = ({ visible, initialProfile, 
       case 'Zusammenfassung':
         return (
           <div className="space-y-2 text-blue-200">
-            <p><strong>Name:</strong> {profile.name || '—'}</p>
-            <p><strong>Job-Kategorie:</strong> {profile.job_type || '—'}</p>
-            <p><strong>Beschreibung:</strong> {profile.description || '—'}</p>
-            <p><strong>Stichwörter:</strong> {profile.keywords.map((k: any) => typeof k === 'string' ? k : k.term).join(', ') || '—'}</p>
+            <p><strong>Name:</strong> {profile.name || '-'}</p>
+            <p><strong>Job-Kategorie:</strong> {profile.job_type || '-'}</p>
+            <p><strong>Beschreibung:</strong> {profile.description || '-'}</p>
+            <p><strong>Stichwörter:</strong> {profile.keywords.map((k: any) => typeof k === 'string' ? k : k.term).join(', ') || '-'}</p>
             <p><strong>Orte:</strong> {
               typeof profile.filters.location === 'string' 
                 ? profile.filters.location 
                 : Array.isArray(profile.filters.location) 
                   ? profile.filters.location.join(', ') 
-                  : '—'
+                  : '-'
             }</p>
             <p><strong>Maximale Jobs:</strong> {profile.search_settings.max_jobs}</p>
           </div>
@@ -266,7 +266,7 @@ const ProfileWizard: React.FC<ProfileWizardProps> = ({ visible, initialProfile, 
           >
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-semibold text-white">Such-Vorlagen-Assistent – {currentStep}</h2>
+              <h2 className="text-2xl font-semibold text-white">Such-Vorlagen-Assistent - {currentStep}</h2>
               <button
                 onClick={onCancel}
                 className="text-white/60 hover:text-white transition-colors p-2"
@@ -331,4 +331,4 @@ const ProfileWizard: React.FC<ProfileWizardProps> = ({ visible, initialProfile, 
   );
 };
 
-export default ProfileWizard; 
+export default ProfileWizard;
