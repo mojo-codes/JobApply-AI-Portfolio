@@ -1,10 +1,14 @@
-# 🤖 JobApply-AI - Intelligent Job Application Management System
+# JobApply-AI - Local-first AI document workflow
 
-An AI-powered job application automation system that streamlines the entire job search and application process using advanced language models and smart automation.
+Archived portfolio project from my early AI-building phase.
+
+This is a local-first workflow app for generating structured German business documents with AI. It combines a React/TypeScript frontend, Python services, local SQLite storage and optional AI providers through environment variables.
+
+The project is public as a technical case study: multi-service architecture, local data handling, WYSIWYG editing, PDF generation and AI-assisted document drafting. It is not my current MojoMakes product direction.
 
 ## 🚀 Key Features
 
-### 🧠 AI-Powered Application Generation
+### AI-Powered Document Generation
 - **Gemini 2.5 Flash** primary AI provider for high-quality German applications
 - **OpenAI GPT** fallback integration for reliable text generation
 - Personalized cover letters tailored to specific job requirements
@@ -16,7 +20,7 @@ An AI-powered job application automation system that streamlines the entire job 
 - **Tauri Desktop App** for native macOS/Windows experience
 - Real-time application preview with live editing capabilities
 
-### 💼 Comprehensive Profile Management
+### Local Profile Management
 - **Career Profile System** - skills, experience, and personal branding
 - **Search Template Engine** - customizable job search criteria
 - **Dynamic Profile Matching** - AI matches profiles to job requirements
